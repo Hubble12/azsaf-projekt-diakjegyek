@@ -36,7 +36,7 @@ namespace adatbazis01.Database
             using var connection = new MySqlConnection(connectionString);
             connection.Open();
             //kell egy parancs
-            using var command = new MySqlCommand("select * from" + tableName, connection);
+            using var command = new MySqlCommand("select * from " + tableName, connection);
             //parancs eredményének feldolgozása
             using var reader = command.ExecuteReader();
             //adatszerkezet létrehozása
@@ -45,7 +45,7 @@ namespace adatbazis01.Database
             dataTable.Load(reader);
             return dataTable;
         }
-
+       
 
 
 
