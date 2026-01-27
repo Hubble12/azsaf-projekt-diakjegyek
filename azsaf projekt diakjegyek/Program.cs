@@ -5,7 +5,7 @@ internal class Program
 {
 
     //connection adatai
-    public static readonly string connectionString = "Server=localhost;Database=11adiakok;User=root;";
+    public static readonly string connectionString = "Server=localhost;Database=11adiakok;User=root;"; 
 
     public static DataTable adatok = new DataTable();
     private static void Main(string[] args)
@@ -13,7 +13,7 @@ internal class Program
         Console.WriteLine("Hello, World!"); //╰(*°▽°*)╯
 
         DBCheck(connectionString);
-        SelectFromTable("diakokjegyek", connectionString);
+        SelectFromTable("diakokjegyek12data", connectionString);
 
 
     }
