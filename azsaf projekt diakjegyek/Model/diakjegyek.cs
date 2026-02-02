@@ -46,6 +46,10 @@ namespace azsaf_projekt_diakjegyek.Model
         {
         }
 
+        public override string ToString()
+        {
+            return $"{Id}, {Nev}, {Matekjegy}, {Magyarjegy}, {Tortenelemjegy}, {Termeszettudomanyjegy}, {Testnevelesjegy}, {Angoljegy}, {Informatikajegy}";
+        }
 
     }
 }

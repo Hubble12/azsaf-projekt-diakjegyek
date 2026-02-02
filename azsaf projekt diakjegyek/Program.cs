@@ -28,6 +28,48 @@ internal class Program
         //tesi
         //angol
         //info
+
+        Console.Write("Irassunk ki mindent? (igen/nem) ");
+        string igennem = Console.ReadLine().ToLower();
+        bool kiiras = (igennem == "igen") ? true : false;
+        if (kiiras)
+        {
+            kiiratas(diakjegyeklist);
+        }
+
+        nevekatlaguk(diakjegyeklist);
+
+        
+
+    }
+
+    private static void nevekatlaguk(List<diakjegyek> diakjegyeklist)
+    {
+        Console.Write("Kinek a jegyeit szeretné megnézni? ");
+        string keresettnev = Console.ReadLine().ToLower();
+        foreach (var item in diakjegyeklist)
+        {
+            if (item.Nev.ToLower() == keresettnev)
+            {
+                Console.WriteLine(item.Nev);
+                Console.WriteLine($"Id: {item.Id}");
+                Console.WriteLine($"Matematika: {item.Matekjegy}");
+                Console.WriteLine($"Magyar: {item.Magyarjegy}");
+                Console.WriteLine($"Történelem: {item.Tortenelemjegy}");
+                Console.WriteLine($"Természettudomány: {item.Termeszettudomanyjegy}");
+                Console.WriteLine($"Testnevelés: {item.Testnevelesjegy}");
+                Console.WriteLine($"Angol: {item.Angoljegy}");
+                Console.WriteLine($"Informatika: {item.Informatikajegy}");
+            }
+        }
+    }
+
+    private static void kiiratas(List<diakjegyek> diakjegyeklist)
+    {
+        foreach (var item in diakjegyeklist) 
+        {
+            Console.WriteLine(item.ToString());
+        }
     }
 
     private static void atlagkiiras(string tantargy)
