@@ -20,7 +20,7 @@ internal class Program
             
             SelectFromTable("diakokjegyek12data", connectionString);
             adatbetoltes(adatok);
-            Console.Write("Melyik tantárgy adatait szeretné megtekinteni? ");
+            Console.Write("Melyik tantárgy osztályátlagát szeretné megtekinteni? ");
             string tantargyinput = Console.ReadLine().ToLower();
             atlagkiiras(tantargyinput);
             Console.WriteLine();
