@@ -12,32 +12,42 @@ internal class Program
     public static List<diakjegyek> diakjegyeklist = new List<diakjegyek>();
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!"); //╰(*°▽°*)╯
-
         DBCheck(connectionString);
-        SelectFromTable("diakokjegyek12data", connectionString);
-        adatbetoltes(adatok);
-        Console.Write("Válassz egy tantárgyat (ékezet használata nélkül add meg a tantárgy nevét!): ");
-        string tantargyinput = Console.ReadLine().ToLower();
-        atlagkiiras(tantargyinput);
-
-        //matek
-        //magyar
-        //töri
-        //természettudomány
-        //tesi
-        //angol
-        //info
-
-        Console.Write("Irassunk ki mindent? (igen/nem) ");
-        string igennem = Console.ReadLine().ToLower();
-        bool kiiras = (igennem == "igen") ? true : false;
-        if (kiiras)
+        while (true)
         {
-            kiiratas(diakjegyeklist);
+            //╰(*°▽°*)╯
+
+            
+            SelectFromTable("diakokjegyek12data", connectionString);
+            adatbetoltes(adatok);
+            Console.Write("Melyik tantárgy adatait szeretné megtekinteni? ");
+            string tantargyinput = Console.ReadLine().ToLower();
+            atlagkiiras(tantargyinput);
+            Console.WriteLine();
+
+            //matek
+            //magyar
+            //töri
+            //természettudomány
+            //tesi
+            //angol
+            //info
+
+            Console.Write("Irassunk ki mindent? (igen/nem) ");
+            string igennem = Console.ReadLine().ToLower();
+            bool kiiras = (igennem == "igen") ? true : false;
+            if (kiiras)
+            {
+                kiiratas(diakjegyeklist);
+                Console.WriteLine();
+            }
+
+            nevekatlaguk(diakjegyeklist);
+
+            Console.WriteLine();
         }
 
-        nevekatlaguk(diakjegyeklist);
+        
 
         
 
@@ -47,11 +57,12 @@ internal class Program
     {
         Console.Write("Kinek a jegyeit szeretné megnézni? ");
         string keresettnev = Console.ReadLine().ToLower();
+        Console.WriteLine();
         foreach (var item in diakjegyeklist)
         {
             if (item.Nev.ToLower() == keresettnev)
             {
-                Console.WriteLine(item.Nev);
+                Console.WriteLine($"{item.Nev}");
                 Console.WriteLine($"Id: {item.Id}");
                 Console.WriteLine($"Matematika: {item.Matekjegy}");
                 Console.WriteLine($"Magyar: {item.Magyarjegy}");
@@ -94,7 +105,7 @@ internal class Program
             Console.WriteLine(tantargy + " átlag: " + Math.Round(atlag, 2));
         }
 
-        else if (tantargy == "tortenelem")
+        else if (tantargy == "tortenelem" || tantargy == "történelem")
         {
             foreach (var jegy in diakjegyeklist)
             {
@@ -104,7 +115,7 @@ internal class Program
             Console.WriteLine(tantargy + " átlag: " + Math.Round(atlag, 2));
         }
 
-        else if (tantargy == "termeszettudomany")
+        else if (tantargy == "termeszettudomany" || tantargy == "természettudomány")
         {
             foreach (var jegy in diakjegyeklist)
             {
@@ -113,7 +124,7 @@ internal class Program
             atlag = atlag / diakjegyeklist.Count;
             Console.WriteLine(tantargy + " átlag: " + Math.Round(atlag, 2));
         }
-        else if (tantargy == "testneveles")
+        else if (tantargy == "testneveles" || tantargy == "testnevelés")
         {
             foreach (var jegy in diakjegyeklist)
             {
