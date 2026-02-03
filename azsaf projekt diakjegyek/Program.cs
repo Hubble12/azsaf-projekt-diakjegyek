@@ -45,6 +45,27 @@ internal class Program
             nevekatlaguk(diakjegyeklist);
 
             Console.WriteLine();
+
+            Console.WriteLine("Szeretne törölni diákot a listából? (igen/nem) ");  //--------------------------------------------------------------------------------Tesztelni
+            string igennem2 = Console.ReadLine().ToLower();
+            if (igennem2 == "igen")
+            {
+                Console.WriteLine("Adja meg a diák ID-ját: ");
+
+                int torolId = Convert.ToInt32( Console.ReadLine());
+                for (int i = 0; i <= diakjegyeklist.Count; i++)
+                {
+                    if (diakjegyeklist[i].Id == torolId)
+                    {
+                        diakjegyeklist.RemoveAt(i);
+                    }
+                }
+                {
+                   
+                }
+
+            }
+            //-------------------------------------------------------------------------------------------------------------------------------------------
         }
 
         
