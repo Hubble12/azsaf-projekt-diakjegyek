@@ -58,10 +58,12 @@ internal class Program
         Console.Write("Kinek a jegyeit szeretné megnézni? ");
         string keresettnev = Console.ReadLine().ToLower();
         Console.WriteLine();
+        bool vanediak = false;
         foreach (var item in diakjegyeklist)
         {
             if (item.Nev.ToLower() == keresettnev)
             {
+                vanediak=true;
                 Console.WriteLine($"{item.Nev}");
                 Console.WriteLine($"Id: {item.Id}");
                 Console.WriteLine($"Matematika: {item.Matekjegy}");
@@ -72,6 +74,10 @@ internal class Program
                 Console.WriteLine($"Angol: {item.Angoljegy}");
                 Console.WriteLine($"Informatika: {item.Informatikajegy}");
             }
+        }
+        if ( vanediak == false)
+        {
+            Console.WriteLine("Nincs ilyen nevű diák az adatbázisban.");
         }
     }
 
