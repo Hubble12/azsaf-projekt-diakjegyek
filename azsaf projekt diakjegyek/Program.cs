@@ -13,13 +13,15 @@ internal class Program
     private static void Main(string[] args)
     {
         DBCheck(connectionString);
+        SelectFromTable("diakokjegyek12data", connectionString);
+        adatbetoltes(adatok);
         while (true)
         {
             //╰(*°▽°*)╯
 
             
-            SelectFromTable("diakokjegyek12data", connectionString);
-            adatbetoltes(adatok);
+            //selectfromtable itt volt
+             //adatbetoltés itt volt
             Console.Write("Melyik tantárgy osztályátlagát szeretné megtekinteni? ");
             string tantargyinput = Console.ReadLine().ToLower();
             atlagkiiras(tantargyinput);
@@ -53,7 +55,7 @@ internal class Program
                 Console.WriteLine("Adja meg a diák ID-ját: ");
 
                 int torolId = Convert.ToInt32( Console.ReadLine());
-                for (int i = 0; i <= diakjegyeklist.Count; i++)
+                for (int i = 0; i < diakjegyeklist.Count; i++)
                 {
                     if (diakjegyeklist[i].Id == torolId)
                     {
@@ -120,7 +122,7 @@ internal class Program
                 atlag += jegy.Matekjegy;
             }
             atlag = atlag / diakjegyeklist.Count;
-            Console.WriteLine(tantargy + " átlag: " + Math.Round(atlag, 2));
+            Console.WriteLine(tantargy + " osztályátlag: " + Math.Round(atlag, 2));
         }
         else if (tantargy == "magyar")
         {
@@ -129,7 +131,7 @@ internal class Program
                 atlag += jegy.Magyarjegy;
             }
             atlag = atlag / diakjegyeklist.Count;
-            Console.WriteLine(tantargy + " átlag: " + Math.Round(atlag, 2));
+            Console.WriteLine(tantargy + " osztályátlag: " + Math.Round(atlag, 2));
         }
 
         else if (tantargy == "tortenelem" || tantargy == "történelem")
@@ -139,7 +141,7 @@ internal class Program
                 atlag += jegy.Tortenelemjegy;
             }
             atlag = atlag / diakjegyeklist.Count;
-            Console.WriteLine(tantargy + " átlag: " + Math.Round(atlag, 2));
+            Console.WriteLine(tantargy + " osztályátlag: " + Math.Round(atlag, 2));
         }
 
         else if (tantargy == "termeszettudomany" || tantargy == "természettudomány")
@@ -149,7 +151,7 @@ internal class Program
                 atlag += jegy.Termeszettudomanyjegy;
             }
             atlag = atlag / diakjegyeklist.Count;
-            Console.WriteLine(tantargy + " átlag: " + Math.Round(atlag, 2));
+            Console.WriteLine(tantargy + " osztályátlag: " + Math.Round(atlag, 2));
         }
         else if (tantargy == "testneveles" || tantargy == "testnevelés")
         {
@@ -158,7 +160,7 @@ internal class Program
                 atlag += jegy.Testnevelesjegy;
             }
             atlag = atlag / diakjegyeklist.Count;
-            Console.WriteLine(tantargy + " átlag: " + Math.Round(atlag, 2));
+            Console.WriteLine(tantargy + " osztályátlag: " + Math.Round(atlag, 2));
         }
         else if (tantargy == "angol")
         {
@@ -167,7 +169,7 @@ internal class Program
                 atlag += jegy.Angoljegy;
             }
             atlag = atlag / diakjegyeklist.Count;
-            Console.WriteLine(tantargy + " átlag: " + Math.Round(atlag, 2));
+            Console.WriteLine(tantargy + " osztályátlag: " + Math.Round(atlag, 2));
         }
         else if (tantargy == "informatika")
         {
@@ -176,7 +178,7 @@ internal class Program
                 atlag += jegy.Informatikajegy;
             }
             atlag = atlag / diakjegyeklist.Count;
-            Console.WriteLine(tantargy + " átlag: " + Math.Round(atlag, 2));
+            Console.WriteLine(tantargy + " osztályátlag: " + Math.Round(atlag, 2));
         }
         else {
             Console.WriteLine("Nincs ilyen tantárgy az adatbázisban.");
