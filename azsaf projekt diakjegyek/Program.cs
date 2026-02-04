@@ -10,6 +10,7 @@ internal class Program
 
     public static DataTable adatok = new DataTable();
     public static List<diakjegyek> diakjegyeklist = new List<diakjegyek>();
+
     private static void Main(string[] args)
     {
         DBCheck(connectionString);
@@ -46,6 +47,7 @@ internal class Program
 
             Console.WriteLine();
         }
+        nevek
 
         
 
